@@ -5,6 +5,12 @@ import json
 import re
 import random
 
+# Initialize session state
+if 'phone_data' not in st.session_state:
+    st.session_state.phone_data = [
+        {"phoneNumber": "+1234567890", "name": "John Doe", "carrier": "Verizon", "city": "New York", "country": "United States", "spamScore": 0.2},
+        {"phoneNumber": "+919876543210", "name": "Priya Sharma", "carrier": "Airtel", "city": "Delhi", "country": "India", "spamScore": 0.5}
+    ]
 if 'search_history' not in st.session_state:
     st.session_state.search_history = []
 
@@ -212,3 +218,11 @@ if st.session_state.search_history:
                 st.warning("High spam score detected!")
 else:
     st.write("No search history yet.")
+
+# Footer
+st.markdown("---")
+st.markdown(
+    "Developed by Lav Kush | "
+    "[Portfolio](https://lav-developer.netlify.app)",
+    unsafe_allow_html=True
+)
